@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------
+   FriendPlay design tokens
+   Concept: a game table, not a corporate SaaS page.
+   Deep felt green surface, parchment cards, gold trim
+   like carved wooden game pieces.
+--------------------------------------------------------- */
+@theme {
+  --color-felt: #103b2c;
+  --color-felt-dark: #0a2820;
+  --color-felt-line: #1c5240;
+  --color-parchment: #efe6d0;
+  --color-parchment-dim: #e4d8b8;
+  --color-gold: #d3a44a;
+  --color-gold-bright: #e8bd6a;
+  --color-ruby: #c0483f;
+  --color-ink: #1b2420;
+  --color-mist: #a9c4b5;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--color-felt);
+    color: var(--color-mist);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    color: var(--color-parchment);
+  }
+
+  /* keyboard focus must stay visible — never remove outlines */
+  :focus-visible {
+    outline: 2px solid var(--color-gold-bright);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
